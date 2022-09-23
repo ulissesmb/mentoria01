@@ -1,1 +1,5 @@
-EU SOU DEV AMÉM OI
+<?php
+
+echo "Meu projeto";
+
+?>
