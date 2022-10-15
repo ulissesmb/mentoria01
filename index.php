@@ -3,12 +3,10 @@ include_once("./config.php");
 
 
 $req = $_SERVER['REQUEST_METHOD'];
-
 if( $req == "GET"){ //POST == GET - FALSE
-    //mostrar($req);
+    $frutasd[] = ["banana","maca","laranja"];
+    mostrar($frutasd);
 }
-
-
  
 ?>
 <br />
