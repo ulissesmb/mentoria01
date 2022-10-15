@@ -1,10 +1,16 @@
 <?php
 
-/*
- echo "<pre>";
- print_r($_SERVER);
- echo "</pre>";
- */
+//Meu primeiro metodo para mostrar os arrays das variaveis
+function mostrar($print){
+    echo "<pre>";
+    print_r($print);
+    echo "</pre>";   
+ }
+
+
+ //chamando o metodo criado anteriormente
+ mostrar($_ENV);
+
 
 
 $req = $_SERVER['REQUEST_METHOD']; //POST
