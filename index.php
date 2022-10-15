@@ -4,8 +4,8 @@ include_once("./config.php");
 
 $req = $_SERVER['REQUEST_METHOD'];
 if( $req == "GET"){ //POST == GET - FALSE
-    $frutasd[] = ["banana","maca","laranja","tangerina"];
-    mostrar($frutasd);
+    $frutas[] = ["banana","maca","laranja","tangerina","amoras"];
+    mostrar($frutas);
 }
  
 ?>
