@@ -1,27 +1,40 @@
 version: "3.8"
+
 services:
 
-    # PHP service
-    buildphp:
-        image: ulissesmb-mentoria-php:0.1
-        build: .
-        #container_name: ulissesmb-mentoria-php:0.1
-        working_dir: /var/www/html
-        networks:
-            - app-network
+  mentoria-build:
+    build: .
+    image: ulissesmb/mentoria:${TAG}
+    networks:
+      - mentoria-network
 
-    webphp:
-        image: ulissesmb-mentoria-php:0.1
-        depends_on:
-            - buildphp
-        container_name: mentoria-php-v1
-        working_dir: /var/www/html
-        volumes:
-            - /c/developer/php/www:/var/www/html
-        ports:
-            - 8080:80
-        networks:
-            - app-network
+  mentoria-db:
+    image: mysql:5.7
+    container_name: mentoria-mysql
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - ./.env
+    networks:
+      - mentoria-network
+
+  mentoria-web:
+    image: ulissesmb/mentoria:${TAG}
+    depends_on:
+        - mentoria-build
+    container_name: mentoria-php
+    working_dir: /var/www/html
+    volumes:
+        - ${LOCAL_PATH}:/var/www/html
+    ports:
+        - 8080:80
+    networks:
+          - mentoria-network
 networks:
-    app-network:
+    mentoria-network:
         driver: bridge
