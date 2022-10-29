@@ -1,6 +1,6 @@
 <?php
 
-//receber todos os metodo do crus
+//receber todos os metodo do crud
 $req = $_SERVER['REQUEST_METHOD'];
 
 

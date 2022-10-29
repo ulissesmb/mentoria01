@@ -1,14 +1,21 @@
 <?php
 include_once("./config.php");
 
+$request = $_SERVER['REQUEST_METHOD'];
+echo $request."<br/>";
 
-if( $req == "GET" || $req == "POST"){
-    $frutas[] = ["banana","maca","laranja","tangerina","amoras","outra","banana","uva", "manga"];
-    mostrar($frutas);
-    $carnes[] = ["maminha","alcatra","picanha","acém","linguiça_Raul"];
-    mostrar($carnes);
+
+if($request == "GET"){
+    $nome = "bonfim";
+$nome = 35;
+$nome = "ucode.filter@gmail.com";
+//$nome = 3.3;
+
+
+echo 'Eu informo o valor:' . $nome ; 
 }
- 
+
+
+
+
 ?>
-<br />
-<h1>Server...</h1>
