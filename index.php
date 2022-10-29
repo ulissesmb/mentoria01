@@ -14,6 +14,7 @@ if($request == "GET"){
 
     echo 'Eu informo o valor:' . $nome ; 
 }
-
-
-?>
+if($request == "DELETE"){
+    $nome = "TESTES";
+    echo $nome;
+}
