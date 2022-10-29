@@ -14,7 +14,16 @@ if($request == "GET"){
 
     echo 'Eu informo o valor:' . $nome ; 
 }
+
 if($request == "DELETE"){
+    $nome = "bonfim";
+    $nome = 35;
+    $nome = "ucode.filter@gmail.com";
+    //$nome = 3.3;
+
     $nome = "TESTES";
     echo $nome;
+    echo 'Eu informo o valor:' . $nome ; 
 }
+
+?>
