@@ -2,10 +2,10 @@
 include_once("./config.php");
 
 
-if( $req == "GET"){ //POST == GET - FALSE
-    $frutas[] = ["banana","maca","laranja","tangerina","amoras","outra"];
+if( $req == "GET" || $req == "POST"){
+    $frutas[] = ["banana","maca","laranja","tangerina","amoras","outra","banana","uva", "manga"];
     mostrar($frutas);
-    $carnes[] = ["maminha","alcatra","picanha","acém"];
+    $carnes[] = ["maminha","alcatra","picanha","acém","linguiça_Raul"];
     mostrar($carnes);
 }
  
