@@ -17,6 +17,10 @@ if($request == "POST"){
     echo "registro nao encontrado!";
 }
 
-
+if($request == "PUT"){
+    //reponse 201
+    header("HTTP/1.1 500 Internal Server Error");
+    echo "registro nao encontrado!";
+}
 
 ?>
