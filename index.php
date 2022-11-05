@@ -2,28 +2,21 @@
 include_once("./config.php");
 
 $request = $_SERVER['REQUEST_METHOD'];
-echo $request."<br/>";
 
 
 if($request == "GET"){
-    $nome = "bonfim";
-    $nome = 35;
-    $nome = "ucode.filter@gmail.com";
-    //$nome = 3.3;
+    //reponse 200
+    header("HTTP/1.1 204 No Content");
 
-
-    echo 'Eu informo o valor:' . $nome ; 
+    echo "Registro cadastrado com sucesso";
 }
 
-if($request == "DELETE"){
-    $nome = "bonfim";
-    $nome = 35;
-    $nome = "ucode.filter@gmail.com";
-    //$nome = 3.3;
-
-    $nome = "TESTES";
-    echo $nome;
-    echo 'Eu informo o valor:' . $nome ; 
+if($request == "POST"){
+    //reponse 201
+    header("HTTP/1.1 404 Not Found");
+    echo "registro nao encontrado!";
 }
+
+
 
 ?>
