@@ -17,7 +17,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      #MYSQL_PASSWORD: ${DB_PASSWORD}
     env_file:
       - ./.env
     networks:
@@ -27,6 +27,7 @@ services:
     image: ulissesmb/mentoria:${TAG}
     depends_on:
         - mentoria-build
+        - mentoria-db
     container_name: mentoria-php
     working_dir: /var/www/html
     volumes:
@@ -34,7 +35,9 @@ services:
     ports:
         - 8080:80
     networks:
-          - mentoria-network
+        - mentoria-network
+    links:
+        - mentoria-db
 networks:
     mentoria-network:
         driver: bridge
