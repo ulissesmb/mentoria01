@@ -9,6 +9,7 @@ services:
       - mentoria-network
 
   mentoria-db:
+    platform: linux/x86_64
     image: mysql:5.7
     container_name: mentoria-mysql
     ports:
@@ -17,7 +18,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
-      #MYSQL_PASSWORD: ${DB_PASSWORD}
     env_file:
       - ./.env
     networks:
