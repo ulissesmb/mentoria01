@@ -1,5 +1,4 @@
 version: "2.2"
-
 services:
 
   mentoria-build:
@@ -35,10 +34,11 @@ services:
       - ${LOCAL_PATH}:/var/www/html
     ports:
       - 8081:80
+      - 8080:8080
     networks:
       - mentoria-network
     links:
-      tort - mentoria-db
+      - mentoria-db
     env_file:
       - ./.env
 networks:

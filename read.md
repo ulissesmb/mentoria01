@@ -1,4 +1,4 @@
-docker-compose --env-file .env up --build -d
+docker-compose --env-file .env up -d --build
 
 
 ------config mac
