@@ -5,6 +5,8 @@ services:
   mentoria-build:
     build: .
     image: ulissesmb/mentoria:${TAG}
+    env_file:
+      - ./.env
     networks:
       - mentoria-network
 
@@ -25,18 +27,20 @@ services:
   mentoria-web:
     image: ulissesmb/mentoria:${TAG}
     depends_on:
-        - mentoria-build
-        - mentoria-db
+      - mentoria-build
+      - mentoria-db
     container_name: mentoria-php
     working_dir: /var/www/html
     volumes:
-        - ${LOCAL_PATH}:/var/www/html
+      - ${LOCAL_PATH}:/var/www/html
     ports:
-        - 8081:80
+      - 8081:80
     networks:
-        - mentoria-network
+      - mentoria-network
     links:
-        - mentoria-db
+      tort - mentoria-db
+    env_file:
+      - ./.env
 networks:
     mentoria-network:
         driver: bridge
